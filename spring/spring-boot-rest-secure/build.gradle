@@ -1,0 +1,47 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.6.RELEASE'
+	}
+	repositories {
+		mavenLocal()
+		mavenCentral()
+		maven { url "http://repo.spring.io/release" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+version = springBootVersion
+group = 'org.springframework.boot'
+jar.baseName ='spring-boot-rest-secure'
+version = '1.0'
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+	maven { url "http://repo.spring.io/release" }
+}
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile('org.springframework.boot:spring-boot-starter-security')
+
+	// This is the database driver required to make the connection to the mysql database
+	compile 'mysql:mysql-connector-java'
+
+	// This contains the JPA and hibernate dependencies requires for database work
+	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+	compile("org.hibernate:hibernate-validator")
+
+	// Spring boot test libraries
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+
