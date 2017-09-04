@@ -1,27 +1,25 @@
 package com.softwaredevblog.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  *
  */
 @Entity
-public class User {
+public class RestUser {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+    @Column(nullable = false, unique = true)
     private String username;
     private String password;
     private String email;
 
-    public User(){
+    public RestUser(){
 
     }
 
-    public User(String username, String password, String email) {
+    public RestUser(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
