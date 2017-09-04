@@ -2,9 +2,6 @@ package com.softwaredevblog.entities;
 
 import javax.persistence.*;
 
-/**
- *
- */
 @Entity
 public class RestUser {
     @Id
@@ -16,7 +13,6 @@ public class RestUser {
     private String email;
 
     public RestUser(){
-
     }
 
     public RestUser(String username, String password, String email) {
